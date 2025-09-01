@@ -7,7 +7,7 @@
   <meta http-equiv="Content-Security-Policy" content="
   default-src 'self';
   script-src 'self';
-  style-src 'self' 'unsafe-inline';
+  style-src 'self';
   img-src 'self' https://devin-bucket1.s3.us-east-1.amazonaws.com/logo3.png https://cazman06.github.io/S3-Upload-Assignment/;
   font-src 'self';
   object-src 'none';
@@ -15,21 +15,9 @@
   form-action 'self';
 ">
   <title>Image Display Page</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      text-align: center;
-      padding: 50px;
-      background-color: #f9f9f9;
-    }
 
-    img {
-      max-width: 100%;
-      height: auto;
-      border: 2px solid #ccc;
-      border-radius: 8px;
-    }
-  </style>
+  <link rel="stylesheet" href="styles.css" />
+  
 </head>
 <body>
 
@@ -40,18 +28,12 @@
    <h2>User Input Example</h2>
   <textarea id="user-input" placeholder="Type something..."></textarea>
   <br>
-  <button onclick="showInput()">Submit</button>
+  <button id="submit-btn">Submit</button>
 
   <h3>Sanitized Output:</h3>
   <div id="output"></div>
 
-  <script>
-    function showInput() {
-      const dirty = document.getElementById('user-input').value;
-      const clean = DOMPurify.sanitize(dirty);
-      document.getElementById('output').innerHTML = clean;
-    }
-  </script>
+  <script src="scripts.js"></script>
 
 </body>
 </html>
