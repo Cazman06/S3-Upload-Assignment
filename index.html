@@ -3,6 +3,16 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta http-equiv="Content-Security-Policy" content="
+  default-src 'self';
+  script-src 'self';
+  style-src 'self' 'unsafe-inline';
+  img-src 'self' https://devin-bucket1.s3.us-east-1.amazonaws.com/logo3.png https://cazman06.github.io/S3-Upload-Assignment/;
+  font-src 'self';
+  object-src 'none';
+  base-uri 'self';
+  form-action 'self';
+">
   <title>Image Display Page</title>
   <style>
     body {
