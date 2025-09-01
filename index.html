@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <script src="https://cdn.jsdelivr.net/npm/dompurify@3.0.2/dist/purify.min.js"></script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <meta http-equiv="Content-Security-Policy" content="
@@ -32,9 +33,25 @@
 </head>
 <body>
 
-  <h1>Welcome to My Image Page</h1>
-  <p>This is an image loaded into a webpage:</p>
+  <h1>S3 Image Upload</h1>
+  <p>This is an image loaded from an s3 bucket:</p>
   <img src="https://devin-bucket1.s3.us-east-1.amazonaws.com/logo3.png" alt="A description of the image" />
+
+   <h2>User Input Example</h2>
+  <textarea id="user-input" placeholder="Type something..."></textarea>
+  <br>
+  <button onclick="showInput()">Submit</button>
+
+  <h3>Sanitized Output:</h3>
+  <div id="output"></div>
+
+  <script>
+    function showInput() {
+      const dirty = document.getElementById('user-input').value;
+      const clean = DOMPurify.sanitize(dirty);
+      document.getElementById('output').innerHTML = clean;
+    }
+  </script>
 
 </body>
 </html>
